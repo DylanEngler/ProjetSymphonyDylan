@@ -1,0 +1,23 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block body %}
+    {% block js %}
+        {% if name is not null %}
+            {{ name }}
+        {% endif %}
+        {% if name is null %}
+            <p>Click the button to demonstrate the prompt box.</p>
+
+            <button onclick="myFunction()">Try it</button>
+
+            <p id="demo"></p>
+        {% endif %}
+        <script>
+            function myFunction() {
+                var person = prompt("Please enter your name", "Harry Potter");
+                if (person != null) {
+                    document.location.href="{{ url }}/"+person;
+                }
+            }
+        </script>
+    {% endblock js %}
+{% endblock body %}

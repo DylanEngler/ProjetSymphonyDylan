@@ -1,0 +1,20 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block body %}
+    {{ form_start(form, {'attr' : {'novalidate':'novalidate'}})  }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+    <tr>
+        <th><a href="{{  path('products', {'key':'title', 'dir': key =='title' and dir=='asc' ? 'desc' : 'asc'}) }}"> title</a></th>
+        <th><a href="{{  path('products', {'key':'description', 'dir': key =='description' and dir=='asc' ? 'desc' : 'asc'}) }}"> description</a></th>
+        <th><a href="{{  path('products', {'key':'price', 'dir': key =='price' and dir=='asc' ? 'desc' : 'asc'}) }}"> price</a></th>
+    </tr>
+    {% for product in prd %}
+        <li>
+            <tr>
+                <td><a href="{{ path('product',{'id':product.id})}}">{{ product.title }}</a></td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}€</td>
+            </tr>
+        </li>
+    {% endfor %}
+{% endblock body %}

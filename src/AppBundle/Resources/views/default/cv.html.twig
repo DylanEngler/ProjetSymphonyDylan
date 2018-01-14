@@ -1,0 +1,37 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block body %}
+    <body >
+    {% for cv in cv %}
+        {{  cv.nomMoi }}<br>
+        {{ cv.prenomMoi }} <br>
+        {{ cv.dateNaissanceMoi |date('d-m-Y ') }} <br>
+        {{ cv.adresseMoi }} <br>
+        {{ cv.numeroMoi }} <br>
+        {{ cv.mailMoi }} <br>
+    {% endfor %}
+    <br>
+    <h5>Ma Formation Actuel</h5>
+    {% for form in form %}
+        {{  form.nomFormation }}<br>
+        {{  form.datedebutFormation |date('d-m-Y ') }}
+    {% endfor %}
+    <br>
+    <h5>Mes Experiences Professionelles</h5>
+    {% for exp in exp %}
+        {{  exp.expTitre }} au {{  exp.expLieu }}<br>
+        du {{  exp.expDebut |date('d-m-Y ') }} au {{  exp.expfin |date('d-m-Y ') }} <br>
+    {% endfor %}
+    <br>
+    <h5>Mes Compétences</h5>
+    {% for competence in comp %}
+        {{  competence.nomCompetence }}<br>
+    {% endfor %}
+    <br>
+    <button> <a href="{{ path('create_commentaire')}}">ajouter un commentaire</a></button>
+    </body>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

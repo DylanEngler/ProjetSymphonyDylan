@@ -1,0 +1,7 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block body %}
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="valider" />
+    {{ form_end(form) }}
+{% endblock body %}

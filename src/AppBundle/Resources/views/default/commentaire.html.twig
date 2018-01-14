@@ -1,0 +1,15 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block body %}
+
+    {% for com in com %}
+        Commentaire N° {{  com.id}}<br>
+        {{  com.titreCommentaire }}<br>
+        {{  com.texteCommentaire }}<br> <br>
+    {% endfor %}
+
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
